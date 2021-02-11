@@ -34,25 +34,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     openssh-server \
     sudo \
     default-jre \
-    default-jdk \
-    nodejs
+    default-jdk 
 
-
-# Add files.
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
-
-# Set environment variables.
-ENV PASS=password
-ENV USER=user
-
-RUN groupadd -g 61000 $USER
-RUN useradd -g 61000 -l -m -s /bin/false -u 61000 $USER
-USER $USER
-
-# Define working directory.
-WORKDIR /home/$USER
 
 # Define default command.
 CMD ["bash"]
