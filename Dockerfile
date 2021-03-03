@@ -37,5 +37,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     default-jdk 
 
 
+RUN echo "export PS1='\[\033[38;5;46m\]@\[$(tput sgr0)\]\[\033[38;5;47m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;12m\]\w\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]'" > .bashrc
+
 # Define default command.
 CMD ["bash"]
